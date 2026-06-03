@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vui học Tiếng Việt (Quyển 1) – Quyển sách vỡ lòng dành cho người mới bắt đầu học Tiếng Việt</title>
+    <style>
+        :root {
+            --primary-kid: #ff7675;    /* Hồng kẹo ngọt ngào */
+            --secondary-kid: #74b9ff;  /* Xanh da trời vui tươi */
+            --bg-kid: #e8f8f5;         /* Nền xanh Mint mát mắt, chống mỏi mắt cho bé */
+            --accent-yellow: #ffeaa7;  /* Vàng nắng ấm áp */
+            --text-dark: #2d3436;      /* Chữ đen đậm nét cho bé dễ đọc */
+            --correct-green: #2ecc71;  /* Xanh lá cây khen ngợi */
+            --wrong-red: #e74c3c;      /* Đỏ báo hiệu nhẹ nhàng */
+            --card-radius: 20px;       /* Bo tròn tối đa tránh thô cứng */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--bg-kid);
+            color: var(--text-dark);
+            background-image: radial-gradient(#fff 20%, transparent 20%), radial-gradient(#fff 20%, transparent 20%);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            padding-bottom: 50px;
+        }
+
+        /* BANNER CHỦ ĐỀ CHUẨN HEADLINE SÁCH */
+        .headline-banner {
+            background: linear-gradient(135deg, #ffeaa7 0%, #ff7675 100%);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 6px dashed #fdcb6e;
+            position: relative;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        }
+
+        .nxb-logo-zone {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #d63031;
+            border: 2px solid #ff7675;
+        }
+
+        .author-zone {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #2d3436;
+        }
+
+        .headline-banner h1 {
+            font-size: 28px;
+            color: #ffffff;
+            text-shadow: 2px 2px 0px #c0392b, 4px 4px 0px rgba(0,0,0,0.15);
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        .headline-banner p {
+            font-size: 15px;
+            color: #f5f6fa;
+            font-weight: bold;
+            margin-top: 5px;
+            background: rgba(0,0,0,0.1);
+            display: inline-block;
+            padding: 3px 15px;
+            border-radius: 20px;
+        }
+
+        /* BỐ CỤC CHÍNH */
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            gap: 25px;
+        }
+
+        /* SIDEBAR MỤC LỤC ĐÁNG YÊU */
+        .kid-sidebar {
+            width: 30%;
+            background: #ffffff;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            border: 4px solid var(--secondary-kid);
+            box-shadow: 0 8px 0px var(--secondary-kid);
+            height: fit-content;
+        }
+
+        .kid-sidebar h2 {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--primary-kid);
+            border-bottom: 3px dotted var(--primary-kid);
+            padding-bottom: 10px;
+        }
+
+        .lesson-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border: 2px solid #dfe6e9;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .lesson-btn:hover {
+            background: var(--accent-yellow);
+            transform: scale(1.02);
+        }
+
+        .lesson-btn.active {
+            background: linear-gradient(135deg, var(--secondary-kid), #0984e3);
+            color: white;
+            border-color: #0984e3;
+            box-shadow: 0 4px 10px rgba(116, 185, 255, 0.4);
+        }
+
+        /* KHU VỰC BÀI ĐỌC CHÍNH */
+        .content-view {
+            width: 70%;
+        }
+
+        .kid-card {
+            background: #ffffff;
+            border-radius: var(--card-radius);
+            border: 4px solid var(--primary-kid);
+            box-shadow: 0 10px 0px var(--primary-kid);
+            padding: 30px;
+            margin-bottom: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Trang trí sinh vật ngộ nghĩnh */
+        .kid-card::after {
+            content: '🌸';
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 25px;
+            opacity: 0.3;
+        }
+
+        .lesson-title {
+            color: var(--primary-kid);
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* AUDIO PLAYER PHONG CÁCH TRẺ EM */
+        .audio-wrapper {
+            background: #f1f2f6;
+            padding: 12px 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #ced6e0;
+        }
+
+        .audio-wrapper span {
+            font-weight: bold;
+            font-size: 14px;
+            color: #57606f;
+        }
+
+        audio {
+            height: 35px;
+            border-radius: 10px;
+        }
+
+        /* TEXT KARAOKE CHỮ ĐỔI MÀU ĐỎ */
+        .reading-box {
+            font-size: 20px;
+            line-height: 2;
+            letter-spacing: 0.5px;
+            background: #fffdf0;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px dashed #ffeaa7;
+            margin-bottom: 30px;
+        }
+
+        .karaoke-word {
+            display: inline-block;
+            margin-right: 4px;
+            transition: color 0.1s ease;
+        }
+
+        .karaoke-word.highlight {
+            color: var(--wrong-red) !important;
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+
+        /* ĐỊNH DẠNG BÀI TẬP */
+        .exercise-section {
+            margin-top: 30px;
+            border-top: 4px dashed #ffeaa7;
+            padding-top: 25px;
+        }
+
+        .exercise-title {
+            font-size: 18px;
+            color: #0984e3;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question-item {
+            background: #f9f9f9;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--secondary-kid);
+        }
+
+        /* Chỉ dẫn thiết bị số thân thiện lớp 1 */
+        .instruction-text {
+            font-size: 13px;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .options-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .option-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .option-item:hover {
+            background: #f1f2f6;
+        }
+
+        /* Thiết kế dấu X thủ công cho sách giấy */
+        .paper-x-box {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #57606f;
+            border-radius: 4px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: transparent;
+            background: white;
+            user-select: none;
+        }
+
+        .option-item.selected .paper-x-box {
+            color: var(--wrong-red);
+            border-color: var(--wrong-red);
+            background: #fff5f5;
+        }
+
+        /* Gõ đáp án ô điền từ */
+        .input-fill {
+            width: 120px;
+            padding: 5px 10px;
+            border: 2px solid var(--secondary-kid);
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            outline: none;
+            color: #2c3e50;
+        }
+
+        .input-fill:focus {
+            border-color: var(--primary-kid);
+            background: #fffdf0;
+        }
+
+        /* Vùng tải ảnh chụp bài tập giấy */
+        .photo-upload-container {
+            border: 3px dashed #b2bec3;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            background: #f8f9fa;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .photo-upload-container:hover {
+            background: #f1f2f6;
+            border-color: var(--secondary-kid);
+        }
+
+        /* HỆ THỐNG ĐÁP ÁN VÀ KHEN THƯỞNG */
+        .feedback-container {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .feedback-correct { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .feedback-wrong { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        /* Vùng hiển thị tặng bông hoa đỏ cho bài tập làm thêm */
+        .flower-garden {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 24px;
+            min-height: 35px;
+            align-items: center;
+        }
+
+        /* NÚT BẤM KÍCH THÍCH HÀNH ĐỘNG */
+        .kid-btn {
+            background: linear-gradient(135deg, #ff7675 0%, #e84393 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 0px #b71c1c;
+            transition: all 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 15px;
+        }
+
+        .kid-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0px #b71c1c;
+        }
+
+        .kid-btn-blue {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            box-shadow: 0 5px 0px #0b3c5d;
+        }
+
+        .kid-btn-blue:active {
+            box-shadow: 0 1px 0px #0b3c5d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="headline-banner">
+        <div class="nxb-logo-zone">🏢 NXB ĐẠI HỌC SƯ PHẠM TPHCM</div>
+        <div class="author-zone">✍️ Nhóm Tác Giả</div>
+        <h1>VUI HỌC TIẾNG VIỆT (QUYỂN 1)</h1>
+        <p>Quyển sách vỡ lòng dành cho người mới bắt đầu học Tiếng Việt</p>
+    </div>
+
+    <div class="main-container">
+        
+        <aside class="kid-sidebar">
+            <h2>🎈 Danh sách Bài học</h2>
+            <button class="lesson-btn active" onclick="switchLesson('bai1')">📖 Bài đọc 1: Bé đi học</button>
+            <button class="lesson-btn" onclick="switchLesson('bai2')">📖 Bài đọc 2: Chú gà trống</button>
+            <button class="lesson-btn" onclick="switchLesson('bai3')">📖 Bài đọc 3: Cây bàng trường em</button>
+            <button class="lesson-btn" onclick="switchLesson('bai4')">📖 Bài đọc 4: Đàn cá bơi lội</button>
+        </aside>
+
+        <main class="content-view">
+            
+            <div id="content-bai1" class="lesson-block">
+                <div class="kid-card">
+                    <h2 class="lesson-title">🐥 Bài đọc 1: Bé đi học</h2>
+                    
+                    <div class="audio-wrapper">
+                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
+                        <audio id="audio-bai1" controls preload="auto" ontimeupdate="syncKaraoke('bai1')">
+                            <source src="audio_bai1.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+
+                    <div class="reading-box" id="text-bai1">
+                        <span class="karaoke-word" data-start="0" data-end="500">Bình</span>
+                        <span class="karaoke-word" data-start="500" data-end="1000">minh</span>
+                        <span class="karaoke-word" data-start="1000" data-end="1500">lên,</span>
+                        <span class="karaoke-word" data-start="1500" data-end="2000">bé</span>
+                        <span class="karaoke-word" data-start="2000" data-end="2500">vui</span>
+                        <span class="karaoke-word" data-start="2500" data-end="3000">sướng</span>
+                        <span class="karaoke-word" data-start="3000" data-end="3500">tung</span>
+                        <span class="karaoke-word" data-start="3500" data-end="4000">tăng</span>
+                        <span class="karaoke-word" data-start="4000" data-end="4500">đến</span>
+                        <span class="karaoke-word" data-start="4500" data-end="5000">trường.</span>
+                        <span class="karaoke-word" data-start="5000" data-end="5500">Trường</span>
+                        <span class="karaoke-word" data-start="5500" data-end="6000">của</span>
+                        <span class="karaoke-word" data-start="6000" data-end="6500">bé</span>
+                        <span class="karaoke-word" data-start="6500" data-end="7000">rất</span>
+                        <span class="karaoke-word" data-start="7000" data-end="7500">đẹp</span>
+                        <span class="karaoke-word" data-start="7500" data-end="8000">và</span>
+                        <span class="karaoke-word" data-start="8000" data-end="8500">vui.</span>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
+                        <div class="question-item" data-qtype="paper-x" data-correct="0">
+                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
+                            <p><strong>Câu 1: Khi bình minh lên, bé đi đâu?</strong></p>
+                            <ul class="options-list">
+                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Bé đến trường học</li>
+                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Bé ra công viên chơi</li>
+                            </ul>
+                        </div>
+                        <button class="kid-btn" onclick="checkBookExercise('bai1')">🚀 Nộp câu trả lời</button>
+                        <div id="fb-book-bai1" class="feedback-container"></div>
+                    </div>
+
+                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
+                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
+                        <div class="question-item" data-qtype="fill" data-correct="vui">
+                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
+                            <p><strong>Câu 1: Điền chữ còn thiếu vào câu sau: "Trường của bé rất đẹp và ...."</strong></p>
+                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai1-1"></p>
+                        </div>
+                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai1')">🌟 Nộp bài làm thêm</button>
+                        <div id="garden-bai1" class="flower-garden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-bai2" class="lesson-block" style="display:none;">
+                <div class="kid-card">
+                    <h2 class="lesson-title">🐔 Bài đọc 2: Chú gà trống</h2>
+                    <div class="audio-wrapper">
+                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
+                        <audio id="audio-bai2" controls preload="auto" ontimeupdate="syncKaraoke('bai2')">
+                            <source src="audio_bai2.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="reading-box" id="text-bai2">
+                        <span class="karaoke-word" data-start="0" data-end="600">Chú</span>
+                        <span class="karaoke-word" data-start="600" data-end="1200">gà</span>
+                        <span class="karaoke-word" data-start="1200" data-end="1800">trống</span>
+                        <span class="karaoke-word" data-start="1800" data-end="2400">gáy</span>
+                        <span class="karaoke-word" data-start="2400" data-end="3000">ò</span>
+                        <span class="karaoke-word" data-start="3000" data-end="3600">ó</span>
+                        <span class="karaoke-word" data-start="3600" data-end="4200">o</span>
+                        <span class="karaoke-word" data-start="4200" data-end="4800">gọi</span>
+                        <span class="karaoke-word" data-start="4800" data-end="5400">mọi</span>
+                        <span class="karaoke-word" data-start="5400" data-end="6000">người</span>
+                        <span class="karaoke-word" data-start="6000" data-end="6600">thức</span>
+                        <span class="karaoke-word" data-start="6600" data-end="7200">dậy.</span>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
+                        <div class="question-item" data-qtype="paper-x" data-correct="1">
+                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
+                            <p><strong>Câu 1: Chú gà trống gáy âm thanh như thế nào?</strong></p>
+                            <ul class="options-list">
+                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Gáy cục ta cục tác</li>
+                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Gáy ò ó o gọi bình minh</li>
+                            </ul>
+                        </div>
+                        <button class="kid-btn" onclick="checkBookExercise('bai2')">🚀 Nộp câu trả lời</button>
+                        <div id="fb-book-bai2" class="feedback-container"></div>
+                    </div>
+
+                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
+                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
+                        <div class="question-item" data-qtype="fill" data-correct="gà">
+                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
+                            <p><strong>Câu 1: Con vật nào biết gáy ò ó o? Đó là con ....</strong></p>
+                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai2-1"></p>
+                        </div>
+                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai2')">🌟 Nộp bài làm thêm</button>
+                        <div id="garden-bai2" class="flower-garden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-bai3" class="lesson-block" style="display:none;">
+                <div class="kid-card">
+                    <h2 class="lesson-title">🌳 Bài đọc 3: Cây bàng trường em</h2>
+                    <div class="audio-wrapper">
+                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
+                        <audio id="audio-bai3" controls preload="auto" ontimeupdate="syncKaraoke('bai3')">
+                            <source src="audio_bai3.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="reading-box" id="text-bai3">
+                        <span class="karaoke-word" data-start="0" data-end="500">Cây</span>
+                        <span class="karaoke-word" data-start="500" data-end="1000">bàng</span>
+                        <span class="karaoke-word" data-start="1000" data-end="1500">tỏa</span>
+                        <span class="karaoke-word" data-start="1500" data-end="2000">bóng</span>
+                        <span class="karaoke-word" data-start="2000" data-end="2500">mát</span>
+                        <span class="karaoke-word" data-start="2500" data-end="3000">che</span>
+                        <span class="karaoke-word" data-start="3000" data-end="3500">chở</span>
+                        <span class="karaoke-word" data-start="3500" data-end="4000">cho</span>
+                        <span class="karaoke-word" data-start="4000" data-end="4500">chúng</span>
+                        <span class="karaoke-word" data-start="4500" data-end="5000">em</span>
+                        <span class="karaoke-word" data-start="5000" data-end="5500">vui</span>
+                        <span class="karaoke-word" data-start="5500" data-end="6000">chơi.</span>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
+                        <div class="question-item" data-qtype="upload">
+                            <span class="instruction-text">📱 Hướng dẫn: Em hãy chụp hình bài viết chữ hoặc tô màu cây bàng trên giấy rồi tải lên đây nhé!</span>
+                            <p><strong>Câu 1: Chụp ảnh bài vẽ cây bàng của em trên giấy</strong></p>
+                            <div class="photo-upload-container" onclick="document.getElementById('upload-bai3').click()">
+                                📸 Bấm vào đây để tải ảnh chụp trên giấy lên
+                                <input type="file" id="upload-bai3" style="display:none;" accept="image/*" onchange="previewImage(this, 'img-bai3')">
+                                <img id="img-bai3" class="preview-img" style="max-width:100%; margin-top:10px; display:none; border-radius:10px;">
+                            </div>
+                        </div>
+                        <button class="kid-btn" onclick="checkBookExercise('bai3')">🚀 Nộp câu trả lời</button>
+                        <div id="fb-book-bai3" class="feedback-container"></div>
+                    </div>
+
+                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
+                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
+                        <div class="question-item" data-qtype="fill" data-correct="bàng">
+                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
+                            <p><strong>Câu 1: Cây tỏa bóng mát ở sân trường trong bài đọc tên là cây gì? Cây ....</strong></p>
+                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai3-1"></p>
+                        </div>
+                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai3')">🌟 Nộp bài làm thêm</button>
+                        <div id="garden-bai3" class="flower-garden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-bai4" class="lesson-block" style="display:none;">
+                <div class="kid-card">
+                    <h2 class="lesson-title">🐟 Bài đọc 4: Đàn cá bơi lội</h2>
+                    <div class="audio-wrapper">
+                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
+                        <audio id="audio-bai4" controls preload="auto" ontimeupdate="syncKaraoke('bai4')">
+                            <source src="audio_bai4.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <div class="reading-box" id="text-bai4">
+                        <span class="karaoke-word" data-start="0" data-end="600">Đàn</span>
+                        <span class="karaoke-word" data-start="600" data-end="1200">cá</span>
+                        <span class="karaoke-word" data-start="1200" data-end="1800">nhỏ</span>
+                        <span class="karaoke-word" data-start="1800" data-end="2400">bơi</span>
+                        <span class="karaoke-word" data-start="2400" data-end="3000">dưới</span>
+                        <span class="karaoke-word" data-start="3000" data-end="3600">hồ</span>
+                        <span class="karaoke-word" data-start="3600" data-end="4200">nước,</span>
+                        <span class="karaoke-word" data-start="4200" data-end="4800">tung</span>
+                        <span class="karaoke-word" data-start="4800" data-end="5400">tăng</span>
+                        <span class="karaoke-word" data-start="5400" data-end="6000">vây</span>
+                        <span class="karaoke-word" data-start="6000" data-end="6600">đuôi.</span>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
+                        <div class="question-item" data-qtype="paper-x" data-correct="0">
+                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
+                            <p><strong>Câu 1: Đàn cá đang bơi lội ở đâu?</strong></p>
+                            <ul class="options-list">
+                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Ở dưới hồ nước</li>
+                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Ở trên ngọn cây cao</li>
+                            </ul>
+                        </div>
+                        <button class="kid-btn" onclick="checkBookExercise('bai4')">🚀 Nộp câu trả lời</button>
+                        <div id="fb-book-bai4" class="feedback-container"></div>
+                    </div>
+
+                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
+                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
+                        <div class="question-item" data-qtype="fill" data-correct="cá">
+                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
+                            <p><strong>Câu 1: Đàn gì đang bơi tung tăng dưới nước? Đàn ....</strong></p>
+                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai4-1"></p>
+                        </div>
+                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai4')">🌟 Nộp bài làm thêm</button>
+                        <div id="garden-bai4" class="flower-garden"></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Thiết kế cơ chế khởi tạo sẵn một lần duy nhất chống trễ mạng tuyệt đối
+        const soundCorrect = new Audio('correct.mp3');
+        const soundIncorrect = new Audio('incorrect.mp3');
+        const soundBravo = new Audio('bravo.mp3');
+
+        // Hàm chuyển đổi các bài đọc linh hoạt trên Menu bộ lọc
+        function switchLesson(lessonId) {
+            // Tạm dừng tất cả các file đọc âm thanh đang chạy để tránh đè tiếng
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+
+            // Ẩn toàn bộ khối nội dung bài học cũ
+            document.querySelectorAll('.lesson-block').forEach(block => {
+                block.style.display = 'none';
+            });
+
+            // Gỡ class active của các nút cũ và nạp class active cho nút vừa bấm
+            document.querySelectorAll('.lesson-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Hiển thị nội dung bài học được chọn
+            document.getElementById('content-' + lessonId).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+
+        // Logic xử lý tick dấu ✕ bằng giao diện số hóa thay thế radio/checkbox khô khan
+        function selectPaperX(element, index) {
+            const parentList = element.closest('.options-list');
+            parentList.querySelectorAll('.option-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            element.closest('.question-item').setAttribute('data-user-answer', index);
+        }
+
+        // Xem trước ảnh chụp bài tập giấy của bé khi tải lên
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // ĐỒNG BỘ HIỆU ỨNG KARAOKE CHỮ ĐỔI MÀU ĐỎ THEO THỜI GIAN ÂM THANH
+        function syncKaraoke(lessonId) {
+            const audio = document.getElementById('audio-' + lessonId);
+            const words = document.querySelectorAll('#text-' + lessonId + ' .karaoke-word');
+            const currentTimeMs = audio.currentTime * 1000; // Đổi giây sang millisecond
+
+            words.forEach(word => {
+                const start = parseInt(word.getAttribute('data-start'));
+                const end = parseInt(word.getAttribute('data-end'));
+
+                if (currentTimeMs >= start && currentTimeMs <= end) {
+                    word.classList.add('highlight');
+                } else {
+                    word.classList.remove('highlight');
+                }
+            });
+        }
+
+        // CHẤM ĐIỂM VÀ HIỂN THỊ ĐÁP ÁN CHÍNH THỨC CỦA SÁCH GIẤY
+        function checkBookExercise(lessonId) {
+            const block = document.getElementById('content-' + lessonId);
+            const questionBox = block.querySelector('.question-item');
+            const feedback = document.getElementById('fb-book' + '-' + lessonId);
+            const qType = questionBox.getAttribute('data-qtype');
+
+            feedback.style.display = 'block';
+
+            // Trường hợp 1: Bài tập yêu cầu chụp bài làm giấy tải lên
+            if (qType === 'upload') {
+                const fileInput = questionBox.querySelector('input[type="file"]');
+                if (fileInput.files.length > 0) {
+                    soundCorrect.play();
+                    feedback.className = "feedback-container feedback-correct";
+                    feedback.innerHTML = "🎉 Cô khen nhé! Bé đã nộp ảnh bài viết chữ rất ngoan. Hãy chờ cô chấm điểm nha!";
+                } else {
+                    soundIncorrect.play();
+                    feedback.className = "feedback-container feedback-wrong";
+                    feedback.innerHTML = "⚠️ Bé ơi, bé chưa chụp ảnh bài viết của mình rồi. Bé bấm vào ô bên trên để chọn ảnh nhé!";
+                }
+                return;
+            }
+
+            // Trường hợp 2: Bài tập trắc nghiệm dấu X thông thường
+            const userAnswer = questionBox.getAttribute('data-user-answer');
+            const correctAnswer = questionBox.getAttribute('data-correct');
+
+            if (userAnswer === null) {
+                soundIncorrect.play();
+                feedback.className = "feedback-container feedback-wrong";
+                feedback.innerHTML = "⚠️ Bé ơi, em hãy tích vào một ô có dấu ✕ trước câu trả lời đúng đã nhé!";
+                return;
+            }
+
+            if (userAnswer === correctAnswer) {
+                soundCorrect.play();
+                feedback.className = "feedback-container feedback-correct";
+                feedback.innerHTML = "🎉 Bé giỏi quá! Đáp án chính xác hoàn toàn rồi! Thầy cô khen bé nhé!";
+            } else {
+                soundIncorrect.play();
+                feedback.className = "feedback-container feedback-wrong";
+                feedback.innerHTML = `❌ Ôi, bé chọn chưa chính xác rồi. Đáp án đúng của bài là ý số ${parseInt(correctAnswer) + 1} cơ. Bé thử lại nhé!`;
+            }
+        }
+
+        // CHẤM ĐIỂM BÀI TẬP LÀM THÊM VÀ TẶNG BÔNG HOA ĐỎ KHEN THƯỞNG
+        function checkExtraExercise(lessonId) {
+            const block = document.getElementById('content-' + lessonId);
+            const questionBox = block.querySelectorAll('.exercise-section')[1].querySelector('.question-item');
+            const garden = document.getElementById('garden-' + lessonId);
+            const uAnswer = questionBox.querySelector('.input-fill').value.trim().toLowerCase();
+            const cAnswer = questionBox.getAttribute('data-correct').toLowerCase();
+
+            garden.innerHTML = ""; // Làm sạch vườn hoa cũ
+
+            if (uAnswer === "") {
+                soundIncorrect.play();
+                garden.innerHTML = "<span style='font-size:14px; color:var(--wrong-red); font-weight:bold;'>⚠️ Bé hãy điền chữ vào ô trống trước khi nộp bài nhé!</span>";
+                return;
+            }
+
+            if (uAnswer === cAnswer) {
+                // Làm đúng hết được nổ tệp âm thanh cổ vũ Bravo đặc biệt và tặng bông hoa đỏ rực
+                soundBravo.play();
+                garden.innerHTML = "🌹 <span style='font-size:14px; color:var(--correct-green); font-weight:bold;'>Xuất sắc! Bé được tặng 1 bông hoa đỏ điểm thưởng (1/1)!</span>";
+            } else {
+                soundIncorrect.play();
+                garden.innerHTML = "🥀 <span style='font-size:14px; color:var(--wrong-red); font-weight:bold;'>Bé chưa làm đúng rồi, hãy đọc lại kỹ bài đọc để sửa lại nha (0/1).</span>";
+            }
+        }
+    </script>
+</body>
+</html>
