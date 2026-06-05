@@ -188,6 +188,7 @@
             background: #ffffff;
             border-radius: var(--card-radius);
             border: 4px solid var(--primary-kid);
+            box-shadow: 0|10px 0px var(--primary-kid);
             box-shadow: 0 10px 0px var(--primary-kid);
             padding: 30px;
             margin-bottom: 35px;
@@ -216,16 +217,16 @@
         .audio-player-zone {
             margin-bottom: 20px;
             background: #fff5f5;
-            padding: 10px 15px;
+            padding: 12px 18px;
             border-radius: 15px;
-            border: 1px solid #ffcccc;
+            border: 2px solid #ffcccc;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .audio-player-zone label {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             color: var(--primary-kid);
             white-space: nowrap;
@@ -233,7 +234,8 @@
 
         .audio-player-zone audio {
             width: 100%;
-            height: 34px;
+            height: 40px;
+            outline: none;
         }
 
         .reading-box {
@@ -365,6 +367,40 @@
             background: #fffdf0;
         }
 
+        .question-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary-kid);
+            margin-bottom: 15px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .input-fill {
+            width: 90px;
+            padding: 6px 10px;
+            font-size: 16px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #d63031;
+            outline: none;
+        }
+
+        .input-fill:focus {
+            border-color: var(--primary-kid);
+            background-color: #fffdf0;
+        }
+
+        .garden-zone {
+            margin-top: 15px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
         .feedback-container {
             margin-top: 15px;
             padding: 12px 15px;
@@ -425,14 +461,12 @@
 
         <main class="content-view">
             
-            <!-- BÀI ĐỌC 1 -->
             <div id="content-bai1" class="lesson-block active-block">
                 <img class="lesson-illustration" src="Lop1.Baidoc1_3.png" alt="Bài đọc 1: Bể cá">
                 <div class="kid-card">
                     <h2 class="lesson-title">Bài đọc 1: Bể cá</h2>
                     <div class="review-note-block">(Ôn các chữ mới học: a, b, c, e, ê, o, ô, d, đ, ơ; các dấu thanh)</div>
                     
-                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
                     <div class="audio-player-zone">
                         <label>🔊 Nghe bài đọc:</label>
                         <audio controls src="audio/Lop1.Baidoc1_3.mp3"></audio>
@@ -461,17 +495,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">🌟 Bài tập làm thêm: Điền từ vào chỗ trống</h3>
+                        <div class="question-item" data-correct="cá cờ">
+                            Bể cá be bé của bé có <input type="text" class="input-fill" placeholder="..."> và cò đá.
+                        </div>
+                        <button class="kid-btn" onclick="checkExtraExercise('bai1')">🌸 Nộp bài làm thêm</button>
+                        <div id="garden-bai1" class="garden-zone"></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- BÀI ĐỌC 2 -->
             <div id="content-bai2" class="lesson-block">
                 <img class="lesson-illustration" src="Lop1.Baidoc2_3.png" alt="Bài đọc 2: Hà đi chợ">
                 <div class="kid-card">
                     <h2 class="lesson-title">Bài đọc 2: Hà đi chợ</h2>
                     <div class="review-note-block">(Ôn các chữ mới học: i, k, h, l, u, ư, ch, kh)</div>
 
-                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
                     <div class="audio-player-zone">
                         <label>🔊 Nghe bài đọc:</label>
                         <audio controls src="audio/Lop1.Baidoc2_3.mp3"></audio>
@@ -497,17 +538,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">🌟 Bài tập làm thêm: Điền từ vào chỗ trống</h3>
+                        <div class="question-item" data-correct="Kè Đá cũ">
+                            Khu chợ cũ nơi dì Lê và Hà đi đến có tên là khu <input type="text" class="input-fill" style="width:120px;" placeholder="...">
+                        </div>
+                        <button class="kid-btn" onclick="checkExtraExercise('bai2')">🌸 Nộp bài làm thêm</button>
+                        <div id="garden-bai2" class="garden-zone"></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- BÀI ĐỌC 3 -->
             <div id="content-bai3" class="lesson-block">
                 <img class="lesson-illustration" src="Lop1.Baidoc3_3.png" alt="Bài đọc 3: Nghỉ hè">
                 <div class="kid-card">
                     <h2 class="lesson-title">Bài đọc 3: Nghỉ hè</h2>
                     <div class="review-note-block">(Ôn các chữ mới học: m, n, g, gi, gh, nh, ng, ngh)</div>
 
-                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
                     <div class="audio-player-zone">
                         <label>🔊 Nghe bài đọc:</label>
                         <audio controls src="audio/Lop1.Baidoc3_3.mp3"></audio>
@@ -515,160 +563,4 @@
 
                     <div class="reading-box">
                         <div class="reading-line">Bà bé Nga đã già. Nghỉ hè, Nga ở nhà bà. Nhà bà có gà, có cả nghé. Ổ gà be bé. Gà có ngô. Nhà nghé nho nhỏ. Nghé có cỏ.</div>
-                        <span class="source-text">Theo sách <i>Tiếng Việt 1</i><br>(NXB Đại học Sư phạm TP Hồ Chí Minh)</span>
-                    </div>
-
-                    <div class="exercise-section">
-                        <h3 class="exercise-title">🧩 Nối đúng:</h3>
-                        <p style="font-size:15px; color:#2c3e50; margin-bottom:15px;">Em hãy quan sát tranh trong sách và đối chiếu với các câu sau:</p>
-                        <div style="background:#fff; padding:20px; border-radius:12px; border:2px solid #e2e8f0; line-height:2;">
-                            <p>1. 👵 (Hình bà cụ) ➔ <strong>đã già.</strong></p>
-                            <p>2. Nhà bà có 🐔 (Hình con gà) , có 🐃 (Hình con nghé) .</p>
-                            <p>3. 🪹 (Hình ổ rơm) ➔ <strong>be bé.</strong></p>
-                            <p>4. 🏠 (Hình chuồng nghé) ➔ <strong>nho nhỏ.</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BÀI ĐỌC 4 -->
-            <div id="content-bai4" class="lesson-block">
-                <img class="lesson-illustration" src="Lop1.Baidoc4_3.png" alt="Bài đọc 4: Thỏ thua rùa">
-                <div class="kid-card">
-                    <h2 class="lesson-title">Bài đọc 4: Thỏ thua rùa</h2>
-                    <div class="review-note-block">(Ôn các chữ mới học: r, s, t, th, tr, ia, ua, ưa)</div>
-
-                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
-                    <div class="audio-player-zone">
-                        <label>🔊 Nghe bài đọc:</label>
-                        <audio controls src="audio/Lop1.Baidoc4_3.mp3"></audio>
-                    </div>
-
-                    <div class="reading-box">
-                        <div class="reading-line">Thỏ rủ rùa thi đi bộ. Rùa tự nhủ: “Thi thì thi. Ta sẽ cố.”. Thỏ nghĩ là rùa sẽ thua. Nó kệ rùa bò, cứ la cà chỗ nọ chỗ kia. Kế đó, nó ngủ khì.</div>
-                        <div class="reading-line">Giữa trưa, thỏ đã thua rùa.</div>
-                        <span class="source-text">Theo LA PHÔNG-TEN</span>
-                    </div>
-
-                    <div class="exercise-section">
-                        <h3 class="exercise-title">🔢 Đánh số thứ tự theo đúng nội dung câu chuyện:</h3>
-                        <span class="instruction-text">📱 Hướng dẫn: Điền số 2, 3, 4 vào ô trống trước mỗi câu dựa theo diễn biến câu chuyện.</span>
-                        
-                        <ul class="sequence-list">
-                            <li class="sequence-item">
-                                <input type="text" class="sequence-input" id="seq-1" maxlength="1" value="1" readonly>
-                                <p>Thỏ rủ rùa thi đi bộ.</p>
-                            </li>
-                            <li class="sequence-item">
-                                <input type="text" class="sequence-input" id="seq-2" maxlength="1" placeholder="?">
-                                <p>Thỏ thua rùa.</p>
-                            </li>
-                            <li class="sequence-item">
-                                <input type="text" class="sequence-input" id="seq-3" maxlength="1" placeholder="?">
-                                <p>Rùa cố bò.</p>
-                            </li>
-                            <li class="sequence-item">
-                                <input type="text" class="sequence-input" id="seq-4" maxlength="1" placeholder="?">
-                                <p>Thỏ la cà.</p>
-                            </li>
-                        </ul>
-                        
-                        <button class="kid-btn" onclick="checkSequence()">🚀 Kiểm tra kết quả</button>
-                        <div id="fb-sequence" class="feedback-container"></div>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <script>
-        const soundCorrect = new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-84.wav'); 
-        const soundIncorrect = new Audio('https://assets.mixkit.co/active_storage/sfx/2019/2019-84.wav');
-
-        // Hàm chuyển đổi nội dung bài học từ sidebar
-        function switchLesson(lessonId) {
-            document.querySelectorAll('.lesson-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.lesson-block').forEach(block => block.classList.remove('active-block'));
-            
-            // Dừng tất cả âm thanh đang phát khi chuyển bài
-            document.querySelectorAll('audio').forEach(audio => {
-                audio.pause();
-                audio.currentTime = 0;
-            });
-
-            document.getElementById('btn-' + lessonId).classList.add('active');
-            document.getElementById('content-' + lessonId).classList.add('active-block');
-        }
-
-        // Logic xử lý Game Nối Từ (Matching Game) cho Bài 1 và Bài 2
-        document.addEventListener("DOMContentLoaded", () => {
-            let activeSelectedCard = null;
-
-            document.querySelectorAll(".word-card").forEach(card => {
-                card.addEventListener("click", function() {
-                    if (this.classList.contains("matched")) return;
-
-                    if (activeSelectedCard === this) {
-                        this.classList.remove("selected");
-                        activeSelectedCard = null;
-                        return;
-                    }
-
-                    if (!activeSelectedCard) {
-                        activeSelectedCard = this;
-                        this.classList.add("selected");
-                    } else {
-                        if (activeSelectedCard.getAttribute("data-position") === this.getAttribute("data-position")) {
-                            activeSelectedCard.classList.remove("selected");
-                            activeSelectedCard = this;
-                            this.classList.add("selected");
-                        } else {
-                            if (activeSelectedCard.getAttribute("data-match") === this.getAttribute("data-match")) {
-                                soundCorrect.play();
-                                activeSelectedCard.classList.remove("selected");
-                                activeSelectedCard.classList.add("matched");
-                                this.classList.add("matched");
-
-                                const softColors = ["#2ecc71", "#3498db", "#9b59b6", "#e67e22", "#1abc9c"];
-                                const luckyColor = softColors[Math.floor(Math.random() * softColors.length)];
-                                
-                                activeSelectedCard.style.backgroundColor = luckyColor;
-                                this.style.backgroundColor = luckyColor;
-
-                                activeSelectedCard = null;
-                            } else {
-                                soundIncorrect.play();
-                                activeSelectedCard.classList.remove("selected");
-                                activeSelectedCard = null;
-                            }
-                        }
-                    }
-                });
-            });
-        });
-
-        // Kiểm tra kết quả sắp xếp thứ tự của Bài đọc 4
-        function checkSequence() {
-            const ans2 = document.getElementById('seq-2').value.trim();
-            const ans3 = document.getElementById('seq-3').value.trim();
-            const ans4 = document.getElementById('seq-4').value.trim();
-            const fb = document.getElementById('fb-sequence');
-
-            fb.style.display = "block";
-
-            // Diễn biến câu chuyện đúng: 1.Thỏ rủ rùa -> 2.Thỏ la cà -> 3.Rùa cố bò -> 4.Thỏ thua rùa.
-            // Do đó: seq-2 (Thỏ thua rùa) là 4, seq-3 (Rùa cố bò) là 3, seq-4 (Thỏ la cà) là 2.
-            if (ans2 === "4" && ans3 === "3" && ans4 === "2") {
-                soundCorrect.play();
-                fb.className = "feedback-container feedback-correct";
-                fb.innerHTML = "🎉 Giỏi quá! Bé đã sắp xếp các sự kiện đúng theo diễn biến câu chuyện rồi!";
-            } else {
-                soundIncorrect.play();
-                fb.className = "feedback-container feedback-wrong";
-                fb.innerHTML = "🥀 Điền chưa chính xác rồi. Bé hãy đọc lại truyện và thử điền lại các số nhé.";
-            }
-        }
-    </script>
-</body>
-</html>
+                        <span class="source-text
