@@ -172,7 +172,6 @@
             display: block;
         }
 
-        /* Tối ưu hiển thị hình ảnh minh họa từ sách */
         .lesson-illustration {
             display: block;
             max-width: 100%;
@@ -196,52 +195,45 @@
             overflow: hidden;
         }
 
-        .kid-card::after {
-            content: '🌸';
-            position: absolute;
-            bottom: 10px;
-            right: 15px;
-            font-size: 25px;
-            opacity: 0.3;
-        }
-
         .lesson-title {
             color: var(--primary-kid);
             font-size: 24px;
             margin-bottom: 5px;
+        }
+
+        .review-note-block {
+            font-size: 15px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-style: italic;
+            font-weight: 500;
+            background: #edf2f7;
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .audio-player-zone {
+            margin-bottom: 20px;
+            background: #fff5f5;
+            padding: 10px 15px;
+            border-radius: 15px;
+            border: 1px solid #ffcccc;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .review-note-block {
-            font-size: 15px;
-            color: #2980b9;
-            margin-bottom: 20px;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .audio-wrapper {
-            background: #f1f2f6;
-            padding: 12px 20px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 2px solid #ced6e0;
-        }
-
-        .audio-wrapper span {
+        .audio-player-zone label {
+            font-size: 13px;
             font-weight: bold;
-            font-size: 14px;
-            color: #57606f;
+            color: var(--primary-kid);
+            white-space: nowrap;
         }
 
-        audio {
-            height: 35px;
-            border-radius: 10px;
+        .audio-player-zone audio {
+            width: 100%;
+            height: 34px;
         }
 
         .reading-box {
@@ -259,16 +251,14 @@
             margin-bottom: 10px;
         }
 
-        .karaoke-word {
-            display: inline-block;
-            margin-right: 4px;
-            transition: color 0.1s ease;
-        }
-
-        .karaoke-word.highlight {
-            color: var(--wrong-red) !important;
-            font-weight: bold;
-            transform: scale(1.03);
+        .source-text {
+            display: block;
+            text-align: right;
+            font-size: 15px;
+            color: #7f8c8d;
+            font-style: italic;
+            line-height: 1.5;
+            margin-top: 15px;
         }
 
         .exercise-section {
@@ -286,14 +276,6 @@
             gap: 8px;
         }
 
-        .question-item {
-            background: #f9f9f9;
-            padding: 18px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--secondary-kid);
-        }
-
         .instruction-text {
             font-size: 13px;
             color: #7f8c8d;
@@ -307,36 +289,39 @@
             justify-content: space-around;
             margin-top: 20px;
             position: relative;
+            gap: 40px;
         }
 
         .matching-column {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: 45%;
         }
 
         .word-card {
             background: white;
             border: 2px solid #bdc3c7;
-            padding: 10px 25px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 12px;
             cursor: pointer;
             user-select: none;
             transition: all 0.2s;
             text-align: center;
             font-weight: 600;
-            min-width: 110px;
-            font-size: 16px;
+            font-size: 18px;
+            box-shadow: 0 3px 0px #bdc3c7;
         }
 
         .word-card:hover {
-            transform: scale(1.04);
+            transform: scale(1.03);
             border-color: #8e44ad;
         }
 
         .word-card.selected {
             border-color: #e74c3c;
             background-color: #ffeaa7;
+            box-shadow: 0 3px 0px #e74c3c;
         }
 
         .word-card.matched {
@@ -344,64 +329,38 @@
             border-color: transparent !important;
             cursor: default;
             transform: none !important;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            box-shadow: none !important;
         }
 
-        .options-list {
+        .sequence-list {
             list-style: none;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
-        .option-item {
-            margin-bottom: 8px;
+        .sequence-item {
             display: flex;
             align-items: center;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: background 0.2s;
+            gap: 15px;
+            margin-bottom: 12px;
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
         }
 
-        .option-item:hover {
-            background: #f1f2f6;
-        }
-
-        .paper-x-box {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #57606f;
-            border-radius: 4px;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            color: transparent;
-            background: white;
-            user-select: none;
-        }
-
-        .option-item.selected .paper-x-box {
-            color: var(--wrong-red);
-            border-color: var(--wrong-red);
-            background: #fff5f5;
-        }
-
-        .input-fill {
-            width: 140px;
-            padding: 5px 10px;
+        .sequence-input {
+            width: 40px;
+            height: 40px;
             border: 2px solid var(--secondary-kid);
             border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
             text-align: center;
-            outline: none;
+            font-size: 18px;
+            font-weight: bold;
             color: #2c3e50;
-            font-family: 'Lexend', sans-serif;
+            outline: none;
         }
 
-        .input-fill:focus {
+        .sequence-input:focus {
             border-color: var(--primary-kid);
             background: #fffdf0;
         }
@@ -417,15 +376,6 @@
 
         .feedback-correct { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .feedback-wrong { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-
-        .flower-garden {
-            display: flex;
-            gap: 8px;
-            margin-top: 15px;
-            font-size: 24px;
-            min-height: 35px;
-            align-items: center;
-        }
 
         .kid-btn {
             background: linear-gradient(135deg, #ff7675 0%, #e84393 100%);
@@ -448,15 +398,6 @@
         .kid-btn:active {
             transform: translateY(4px);
             box-shadow: 0 1px 0px #b71c1c;
-        }
-
-        .kid-btn-blue {
-            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-            box-shadow: 0 5px 0px #0b3c5d;
-        }
-
-        .kid-btn-blue:active {
-            box-shadow: 0 1px 0px #0b3c5d;
         }
     </style>
 </head>
@@ -484,394 +425,156 @@
 
         <main class="content-view">
             
+            <!-- BÀI ĐỌC 1 -->
             <div id="content-bai1" class="lesson-block active-block">
-                <img class="lesson-illustration" src="Lop1.Baidoc1.png" alt="Bé ngắm bể cá cờ và cò đá">
+                <img class="lesson-illustration" src="Lop1.Baidoc1_3.png" alt="Bài đọc 1: Bể cá">
                 <div class="kid-card">
-                    <h2 class="lesson-title">
-                        <span class="karaoke-word" data-start="0" data-end="2500">🐥 Bài đọc 1: Bể cá</span>
-                    </h2>
-                    <div class="review-note-block">
-                        <span class="karaoke-word" data-start="2500" data-end="6000">(Ôn các chữ mới học: a, b, c, e, ê, o, ô, ơ, d, đ, ư; các dấu thanh)</span>
-                    </div>
+                    <h2 class="lesson-title">Bài đọc 1: Bể cá</h2>
+                    <div class="review-note-block">(Ôn các chữ mới học: a, b, c, e, ê, o, ô, d, đ, ơ; các dấu thanh)</div>
                     
-                    <div class="audio-wrapper">
-                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
-                        <audio id="audio_bai1" controls preload="auto" ontimeupdate="syncKaraoke('bai1')">
-                            <source src="audio_bai1.mp3" type="audio/mpeg">
-                        </audio>
+                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
+                    <div class="audio-player-zone">
+                        <label>🔊 Nghe bài đọc:</label>
+                        <audio controls src="audio/Lop1.Baidoc1_3.mp3"></audio>
                     </div>
 
-                    <div class="reading-box" id="text-bai1">
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="6000" data-end="6800">– Bé</span>
-                            <span class="karaoke-word" data-start="6800" data-end="7400">có</span>
-                            <span class="karaoke-word" data-start="7400" data-end="8000">bể</span>
-                            <span class="karaoke-word" data-start="8000" data-end="8500">cá</span>
-                            <span class="karaoke-word" data-start="8500" data-end="9200">à?</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="9200" data-end="10000">– Dạ.</span>
-                            <span class="karaoke-word" data-start="10000" data-end="10600">Bé</span>
-                            <span class="karaoke-word" data-start="10600" data-end="11200">có</span>
-                            <span class="karaoke-word" data-start="11200" data-end="11800">bể</span>
-                            <span class="karaoke-word" data-start="11800" data-end="12400">cá</span>
-                            <span class="karaoke-word" data-start="12400" data-end="13200">be</span>
-                            <span class="karaoke-word" data-start="13200" data-end="14000">bé.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="14000" data-end="14800">– Ồ,</span>
-                            <span class="karaoke-word" data-start="14800" data-end="15400">bể</span>
-                            <span class="karaoke-word" data-start="15400" data-end="16000">có</span>
-                            <span class="karaoke-word" data-start="16000" data-end="16600">cá</span>
-                            <span class="karaoke-word" data-start="16600" data-end="17200">à?</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="17200" data-end="18000">– Bể</span>
-                            <span class="karaoke-word" data-start="18000" data-end="18600">có</span>
-                            <span class="karaoke-word" data-start="18600" data-end="19200">cá</span>
-                            <span class="karaoke-word" data-start="19200" data-end="19800">cờ,</span>
-                            <span class="karaoke-word" data-start="19800" data-end="20400">cô</span>
-                            <span class="karaoke-word" data-start="20400" data-end="21000">ạ.</span>
-                            <span class="karaoke-word" data-start="21000" data-end="21600">Bể</span>
-                            <span class="karaoke-word" data-start="21600" data-end="22200">có</span>
-                            <span class="karaoke-word" data-start="22200" data-end="22800">cả</span>
-                            <span class="karaoke-word" data-start="22200" data-end="23400">cò</span>
-                            <span class="karaoke-word" data-start="23400" data-end="24200">đá.</span>
-                        </div>
+                    <div class="reading-box">
+                        <div class="reading-line">– Bé có bể cá à?</div>
+                        <div class="reading-line">– Dạ. Bé có bể cá be bé.</div>
+                        <div class="reading-line">– Ồ, bể có cá à?</div>
+                        <div class="reading-line">– Bể có cá cờ, cô ạ. Bể có cả cò đá.</div>
                     </div>
 
                     <div class="exercise-section">
-                        <h3 class="exercise-title">🧩 Bài tập: Bé hãy nối các từ có nghĩa phù hợp nhé!</h3>
-                        <span class="instruction-text">📱 Hướng dẫn: Bé bấm chọn 1 ô bên trái và 1 ô bên phải để ghép thành một cặp đúng nghĩa nhé!</span>
+                        <h3 class="exercise-title">🧩 Nối đúng:</h3>
+                        <span class="instruction-text">📱 Hướng dẫn: Bé bấm chọn 1 ô bên trái và 1 ô bên phải để ghép thành cặp đúng nhé!</span>
                         <div class="matching-container">
                             <div class="matching-column">
-                                <div class="word-card" data-match="1" data-position="left">Bé có</div>
-                                <div class="word-card" data-match="2" data-position="left">Bể có</div>
-                                <div class="word-card" data-match="3" data-position="left">Cá</div>
+                                <div class="word-card" data-match="b1-1" data-position="left">Bé có</div>
+                                <div class="word-card" data-match="b1-2" data-position="left">Bể cá có</div>
+                                <div class="word-card" data-match="b1-3" data-position="left">Bé có cả</div>
                             </div>
                             <div class="matching-column">
-                                <div class="word-card" data-match="2" data-position="right">cá cờ</div>
-                                <div class="word-card" data-match="3" data-position="right">bơi</div>
-                                <div class="word-card" data-match="1" data-position="right">bể cá</div>
+                                <div class="word-card" data-match="b1-3" data-position="right">cò đá.</div>
+                                <div class="word-card" data-match="b1-1" data-position="right">bể cá be bé.</div>
+                                <div class="word-card" data-match="b1-2" data-position="right">cá cờ.</div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="exercise-section">
-                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
-                        <div class="question-item" data-qtype="paper-x" data-correct="0">
-                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
-                            <p><strong>Câu 1: Bể cá của bé có những gì?</strong></p>
-                            <ul class="options-list">
-                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Có cá cờ và cò đá</li>
-                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Có cá mập voi khổng lồ</li>
-                            </ul>
-                        </div>
-                        <button class="kid-btn" onclick="checkBookExercise('bai1')">🚀 Nộp câu trả lời</button>
-                        <div id="fb-book-bai1" class="feedback-container"></div>
-                    </div>
-
-                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
-                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
-                        <div class="question-item" data-qtype="fill" data-correct="cờ">
-                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
-                            <p><strong>Câu 1: Điền chữ còn thiếu vào câu sau: "Bể có cá ...., cô ạ."</strong></p>
-                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai1-1"></p>
-                        </div>
-                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai1')">🌟 Nộp bài làm thêm</button>
-                        <div id="garden-bai1" class="flower-garden"></div>
                     </div>
                 </div>
             </div>
 
+            <!-- BÀI ĐỌC 2 -->
             <div id="content-bai2" class="lesson-block">
-                <img class="lesson-illustration" src="Lop1.Baidoc2.png" alt="Dì Lê và Hà đi chợ khu Kè Đá cũ">
+                <img class="lesson-illustration" src="Lop1.Baidoc2_3.png" alt="Bài đọc 2: Hà đi chợ">
                 <div class="kid-card">
-                    <h2 class="lesson-title">
-                        <span class="karaoke-word" data-start="0" data-end="2500">🐥 Bài đọc 2: Hà đi chợ</span>
-                    </h2>
-                    <div class="review-note-block">
-                        <span class="karaoke-word" data-start="2500" data-end="6000">(Ôn các chữ mới học: g, gh, i, ia, k, kh, l, m, n; các dấu thanh)</span>
+                    <h2 class="lesson-title">Bài đọc 2: Hà đi chợ</h2>
+                    <div class="review-note-block">(Ôn các chữ mới học: i, k, h, l, u, ư, ch, kh)</div>
+
+                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
+                    <div class="audio-player-zone">
+                        <label>🔊 Nghe bài đọc:</label>
+                        <audio controls src="audio/Lop1.Baidoc2_3.mp3"></audio>
                     </div>
 
-                    <div class="audio-wrapper">
-                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
-                        <audio id="audio_bai2" controls preload="auto" ontimeupdate="syncKaraoke('bai2')">
-                            <source src="audio_bai2.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-
-                    <div class="reading-box" id="text-bai2">
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="6000" data-end="6600">Dì</span>
-                            <span class="karaoke-word" data-start="6600" data-end="7200">Lê</span>
-                            <span class="karaoke-word" data-start="7200" data-end="7800">và</span>
-                            <span class="karaoke-word" data-start="7800" data-end="8400">Hà</span>
-                            <span class="karaoke-word" data-start="8400" data-end="9000">đi</span>
-                            <span class="karaoke-word" data-start="9000" data-end="9600">chợ.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="9600" data-end="10200">Chợ</span>
-                            <span class="karaoke-word" data-start="10200" data-end="10800">ở</span>
-                            <span class="karaoke-word" data-start="10800" data-end="11400">khu</span>
-                            <span class="karaoke-word" data-start="11400" data-end="12000">Kè</span>
-                            <span class="karaoke-word" data-start="12000" data-end="12600">Đá</span>
-                            <span class="karaoke-word" data-start="12600" data-end="13200">cũ.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="13200" data-end="13800">Dì</span>
-                            <span class="karaoke-word" data-start="13800" data-end="14400">Lê</span>
-                            <span class="karaoke-word" data-start="14400" data-end="15000">mua</span>
-                            <span class="karaoke-word" data-start="15000" data-end="15600">cá</span>
-                            <span class="karaoke-word" data-start="15600" data-end="16200">kho,</span>
-                            <span class="karaoke-word" data-start="16200" data-end="16800">mua</span>
-                            <span class="karaoke-word" data-start="16800" data-end="17400">khế,</span>
-                            <span class="karaoke-word" data-start="17400" data-end="18000">mua</span>
-                            <span class="karaoke-word" data-start="18000" data-end="18600">lê.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="18600" data-end="19200">Hà</span>
-                            <span class="karaoke-word" data-start="19200" data-end="19800">gửi</span>
-                            <span class="karaoke-word" data-start="19800" data-end="20400">mua</span>
-                            <span class="karaoke-word" data-start="20400" data-end="21000">khăn</span>
-                            <span class="karaoke-word" data-start="21000" data-end="21600">cho</span>
-                            <span class="karaoke-word" data-start="21600" data-end="22200">mẹ.</span>
-                        </div>
+                    <div class="reading-box">
+                        <div class="reading-line">Dì Lê cho Hà đi chợ. Chợ ở khu Kè Đá cũ. Chợ có cá, có cà, có khế. Chợ có cả bò, cả bê, cả dê.</div>
                     </div>
 
                     <div class="exercise-section">
-                        <h3 class="exercise-title">🧩 Bài tập: Bé hãy nối các từ có nghĩa phù hợp nhé!</h3>
-                        <span class="instruction-text">📱 Hướng dẫn: Bé bấm chọn 1 ô bên trái và 1 ô bên phải để ghép thành một cặp đúng nghĩa nhé!</span>
+                        <h3 class="exercise-title">🧩 Nối đúng:</h3>
+                        <span class="instruction-text">📱 Hướng dẫn: Bé bấm chọn 1 ô bên trái và 1 ô bên phải để ghép thành cặp đúng nhé!</span>
                         <div class="matching-container">
                             <div class="matching-column">
-                                <div class="word-card" data-match="4" data-position="left">Chợ ở</div>
-                                <div class="word-card" data-match="5" data-position="left">Dì Lê mua</div>
-                                <div class="word-card" data-match="6" data-position="left">Hà gửi mua</div>
+                                <div class="word-card" data-match="b2-1" data-position="left">Dì Lê cho</div>
+                                <div class="word-card" data-match="b2-2" data-position="left">Chợ ở</div>
+                                <div class="word-card" data-match="b2-3" data-position="left">Chợ có</div>
                             </div>
                             <div class="matching-column">
-                                <div class="word-card" data-match="5" data-position="right">cá kho, khế, lê</div>
-                                <div class="word-card" data-match="6" data-position="right">khăn cho mẹ</div>
-                                <div class="word-card" data-match="4" data-position="right">khu Kè Đá cũ</div>
+                                <div class="word-card" data-match="b2-2" data-position="right">khu Kè Đá cũ.</div>
+                                <div class="word-card" data-match="b2-3" data-position="right">cá, cà, khế, bò, bê, dê.</div>
+                                <div class="word-card" data-match="b2-1" data-position="right">Hà đi chợ.</div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="exercise-section">
-                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
-                        <div class="question-item" data-qtype="paper-x" data-correct="1">
-                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
-                            <p><strong>Câu 1: Hà đi chợ cùng với ai?</strong></p>
-                            <ul class="options-list">
-                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Hà đi chợ một mình</li>
-                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Hà đi chợ với dì Lê</li>
-                            </ul>
-                        </div>
-                        <button class="kid-btn" onclick="checkBookExercise('bai2')">🚀 Nộp câu trả lời</button>
-                        <div id="fb-book-bai2" class="feedback-container"></div>
-                    </div>
-
-                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
-                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
-                        <div class="question-item" data-qtype="fill" data-correct="khăn">
-                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
-                            <p><strong>Câu 1: Điền chữ còn thiếu vào câu sau: "Hà gửi mua .... cho mẹ."</strong></p>
-                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai2-1"></p>
-                        </div>
-                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai2')">🌟 Nộp bài làm thêm</button>
-                        <div id="garden-bai2" class="flower-garden"></div>
                     </div>
                 </div>
             </div>
 
+            <!-- BÀI ĐỌC 3 -->
             <div id="content-bai3" class="lesson-block">
-                <img class="lesson-illustration" src="Lop1.Baidoc3.png" alt="Bé Nga ở nhà bà, có ổ gà be bé và chú nghé nhỏ">
+                <img class="lesson-illustration" src="Lop1.Baidoc3_3.png" alt="Bài đọc 3: Nghỉ hè">
                 <div class="kid-card">
-                    <h2 class="lesson-title">
-                        <span class="karaoke-word" data-start="0" data-end="2500">🐥 Bài đọc 3: Nghỉ hè</span>
-                    </h2>
-                    <div class="review-note-block">
-                        <span class="karaoke-word" data-start="2500" data-end="6000">(Ôn các chữ mới học: p, ph, nh, qua, r, s, t, th; các dấu thanh)</span>
+                    <h2 class="lesson-title">Bài đọc 3: Nghỉ hè</h2>
+                    <div class="review-note-block">(Ôn các chữ mới học: m, n, g, gi, gh, nh, ng, ngh)</div>
+
+                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
+                    <div class="audio-player-zone">
+                        <label>🔊 Nghe bài đọc:</label>
+                        <audio controls src="audio/Lop1.Baidoc3_3.mp3"></audio>
                     </div>
 
-                    <div class="audio-wrapper">
-                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
-                        <audio id="audio_bai3" controls preload="auto" ontimeupdate="syncKaraoke('bai3')">
-                            <source src="audio_bai3.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-
-                    <div class="reading-box" id="text-bai3">
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="6000" data-end="6600">Nghỉ</span>
-                            <span class="karaoke-word" data-start="6600" data-end="7200">hè,</span>
-                            <span class="karaoke-word" data-start="7200" data-end="7800">bé</span>
-                            <span class="karaoke-word" data-start="7800" data-end="8400">Nga</span>
-                            <span class="karaoke-word" data-start="8400" data-end="9000">ở</span>
-                            <span class="karaoke-word" data-start="9000" data-end="9600">nhà</span>
-                            <span class="karaoke-word" data-start="9600" data-end="10200">bà.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="10200" data-end="10800">Nhà</span>
-                            <span class="karaoke-word" data-start="10800" data-end="11400">bà</span>
-                            <span class="karaoke-word" data-start="11400" data-end="12000">có</span>
-                            <span class="karaoke-word" data-start="12000" data-end="12600">ổ</span>
-                            <span class="karaoke-word" data-start="12600" data-end="13200">gà</span>
-                            <span class="karaoke-word" data-start="13200" data-end="13800">be</span>
-                            <span class="karaoke-word" data-start="13800" data-end="14400">bé.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="14400" data-end="15000">Ổ</span>
-                            <span class="karaoke-word" data-start="15000" data-end="15600">gà</span>
-                            <span class="karaoke-word" data-start="15600" data-end="16200">có</span>
-                            <span class="karaoke-word" data-start="16200" data-end="16800">bốn</span>
-                            <span class="karaoke-word" data-start="16800" data-end="17400">chú</span>
-                            <span class="karaoke-word" data-start="17400" data-end="18000">gà</span>
-                            <span class="karaoke-word" data-start="18000" data-end="18600">nhỏ.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="18600" data-end="19200">Nhà</span>
-                            <span class="karaoke-word" data-start="19200" data-end="19800">bà</span>
-                            <span class="karaoke-word" data-start="19800" data-end="20400">có</span>
-                            <span class="karaoke-word" data-start="20400" data-end="21000">cả</span>
-                            <span class="karaoke-word" data-start="21000" data-end="21600">chú</span>
-                            <span class="karaoke-word" data-start="21600" data-end="22200">nghé</span>
-                            <span class="karaoke-word" data-start="22200" data-end="22800">nho</span>
-                            <span class="karaoke-word" data-start="22800" data-end="23400">nhỏ.</span>
-                        </div>
+                    <div class="reading-box">
+                        <div class="reading-line">Bà bé Nga đã già. Nghỉ hè, Nga ở nhà bà. Nhà bà có gà, có cả nghé. Ổ gà be bé. Gà có ngô. Nhà nghé nho nhỏ. Nghé có cỏ.</div>
+                        <span class="source-text">Theo sách <i>Tiếng Việt 1</i><br>(NXB Đại học Sư phạm TP Hồ Chí Minh)</span>
                     </div>
 
                     <div class="exercise-section">
-                        <h3 class="exercise-title">🧩 Bài tập: Bé hãy nối các từ có nghĩa phù hợp nhé!</h3>
-                        <span class="instruction-text">📱 Hướng dẫn: Bé bấm chọn 1 ô bên trái và 1 ô bên phải để ghép thành một cặp đúng nghĩa nhé!</span>
-                        <div class="matching-container">
-                            <div class="matching-column">
-                                <div class="word-card" data-match="7" data-position="left">Nghỉ hè</div>
-                                <div class="word-card" data-match="8" data-position="left">Ổ gà có</div>
-                                <div class="word-card" data-match="9" data-position="left">Nhà bà có</div>
-                            </div>
-                            <div class="matching-column">
-                                <div class="word-card" data-match="8" data-position="right">bốn chú gà nhỏ</div>
-                                <div class="word-card" data-match="7" data-position="right">bé Nga ở nhà bà</div>
-                                <div class="word-card" data-match="9" data-position="right">chú nghé nho nhỏ</div>
-                            </div>
+                        <h3 class="exercise-title">🧩 Nối đúng:</h3>
+                        <p style="font-size:15px; color:#2c3e50; margin-bottom:15px;">Em hãy quan sát tranh trong sách và đối chiếu với các câu sau:</p>
+                        <div style="background:#fff; padding:20px; border-radius:12px; border:2px solid #e2e8f0; line-height:2;">
+                            <p>1. 👵 (Hình bà cụ) ➔ <strong>đã già.</strong></p>
+                            <p>2. Nhà bà có 🐔 (Hình con gà) , có 🐃 (Hình con nghé) .</p>
+                            <p>3. 🪹 (Hình ổ rơm) ➔ <strong>be bé.</strong></p>
+                            <p>4. 🏠 (Hình chuồng nghé) ➔ <strong>nho nhỏ.</strong></p>
                         </div>
-                    </div>
-
-                    <div class="exercise-section">
-                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
-                        <div class="question-item" data-qtype="paper-x" data-correct="0">
-                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
-                            <p><strong>Câu 1: Ổ gà nhà bà có mấy chú gà nhỏ?</strong></p>
-                            <ul class="options-list">
-                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Có bốn chú gà nhỏ</li>
-                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Có một trăm chú gà con</li>
-                            </ul>
-                        </div>
-                        <button class="kid-btn" onclick="checkBookExercise('bai3')">🚀 Nộp câu trả lời</button>
-                        <div id="fb-book-bai3" class="feedback-container"></div>
-                    </div>
-
-                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
-                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
-                        <div class="question-item" data-qtype="fill" data-correct="Nga">
-                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
-                            <p><strong>Câu 1: Điền chữ còn thiếu vào câu sau: "Nghỉ hè, bé .... ở nhà bà."</strong></p>
-                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai3-1"></p>
-                        </div>
-                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai3')">🌟 Nộp bài làm thêm</button>
-                        <div id="garden-bai3" class="flower-garden"></div>
                     </div>
                 </div>
             </div>
 
+            <!-- BÀI ĐỌC 4 -->
             <div id="content-bai4" class="lesson-block">
-                <img class="lesson-illustration" src="Lop1.Baidoc4.png" alt="Thỏ mải la cà ngủ khì để rùa chăm chỉ bò về đích">
+                <img class="lesson-illustration" src="Lop1.Baidoc4_3.png" alt="Bài đọc 4: Thỏ thua rùa">
                 <div class="kid-card">
-                    <h2 class="lesson-title">
-                        <span class="karaoke-word" data-start="0" data-end="2500">🐥 Bài đọc 4: Thỏ thua rùa</span>
-                    </h2>
-                    <div class="review-note-block">
-                        <span class="karaoke-word" data-start="2500" data-end="6000">(Ôn các chữ mới học: ch, tr, u, uô, ư, ươ, v, x, y; các dấu thanh)</span>
+                    <h2 class="lesson-title">Bài đọc 4: Thỏ thua rùa</h2>
+                    <div class="review-note-block">(Ôn các chữ mới học: r, s, t, th, tr, ia, ua, ưa)</div>
+
+                    <!-- Giữ lại thanh Audio để nghe bài đọc -->
+                    <div class="audio-player-zone">
+                        <label>🔊 Nghe bài đọc:</label>
+                        <audio controls src="audio/Lop1.Baidoc4_3.mp3"></audio>
                     </div>
 
-                    <div class="audio-wrapper">
-                        <span>🎧 Bé nghe cô đọc bài nhé:</span>
-                        <audio id="audio_bai4" controls preload="auto" ontimeupdate="syncKaraoke('bai4')">
-                            <source src="audio_bai4.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-
-                    <div class="reading-box" id="text-bai4">
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="6000" data-end="6600">Thỏ</span>
-                            <span class="karaoke-word" data-start="6600" data-end="7200">mải</span>
-                            <span class="karaoke-word" data-start="7200" data-end="7800">la</span>
-                            <span class="karaoke-word" data-start="7800" data-end="8400">cà.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="8400" data-end="9000">Rùa</span>
-                            <span class="karaoke-word" data-start="9000" data-end="9600">chăm</span>
-                            <span class="karaoke-word" data-start="9600" data-end="10200">chỉ.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="10200" data-end="10800">Thỏ</span>
-                            <span class="karaoke-word" data-start="10800" data-end="11400">ngủ</span>
-                            <span class="karaoke-word" data-start="11400" data-end="12000">khì.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="12000" data-end="12600">Rùa</span>
-                            <span class="karaoke-word" data-start="12600" data-end="13200">bò</span>
-                            <span class="karaoke-word" data-start="13200" data-end="13800">về</span>
-                            <span class="karaoke-word" data-start="13800" data-end="14400">đích</span>
-                            <span class="karaoke-word" data-start="14400" data-end="15000">trước.</span>
-                        </div>
-                        <div class="reading-line">
-                            <span class="karaoke-word" data-start="15000" data-end="15600">Thỏ</span>
-                            <span class="karaoke-word" data-start="15600" data-end="16200">thua</span>
-                            <span class="karaoke-word" data-start="16200" data-end="16800">rùa.</span>
-                        </div>
+                    <div class="reading-box">
+                        <div class="reading-line">Thỏ rủ rùa thi đi bộ. Rùa tự nhủ: “Thi thì thi. Ta sẽ cố.”. Thỏ nghĩ là rùa sẽ thua. Nó kệ rùa bò, cứ la cà chỗ nọ chỗ kia. Kế đó, nó ngủ khì.</div>
+                        <div class="reading-line">Giữa trưa, thỏ đã thua rùa.</div>
+                        <span class="source-text">Theo LA PHÔNG-TEN</span>
                     </div>
 
                     <div class="exercise-section">
-                        <h3 class="exercise-title">🧩 Bài tập: Bé hãy nối các từ có nghĩa phù hợp nhé!</h3>
-                        <span class="instruction-text">📱 Hướng dẫn: Bé bấm chọn 1 ô bên trái và 1 ô bên phải để ghép thành một cặp đúng nghĩa nhé!</span>
-                        <div class="matching-container">
-                            <div class="matching-column">
-                                <div class="word-card" data-match="10" data-position="left">Thỏ mải</div>
-                                <div class="word-card" data-match="11" data-position="left">Rùa bò</div>
-                                <div class="word-card" data-match="12" data-position="left">Rùa thì</div>
-                            </div>
-                            <div class="matching-column">
-                                <div class="word-card" data-match="11" data-position="right">về đích trước</div>
-                                <div class="word-card" data-match="10" data-position="right">la cà, ngủ khì</div>
-                                <div class="word-card" data-match="12" data-position="right">chăm chỉ</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="exercise-section">
-                        <h3 class="exercise-title">📝 Bài tập trong sách</h3>
-                        <div class="question-item" data-qtype="paper-x" data-correct="1">
-                            <span class="instruction-text">📱 Hướng dẫn: Đánh dấu ✕ bằng cách bấm chọn vào ô trước ý đúng em nhé!</span>
-                            <p><strong>Câu 1: Ai là người đã về đích trước trong cuộc đua?</strong></p>
-                            <ul class="options-list">
-                                <li class="option-item" onclick="selectPaperX(this, 0)"><div class="paper-x-box">✕</div> Bạn Thỏ nhanh nhẹn</li>
-                                <li class="option-item" onclick="selectPaperX(this, 1)"><div class="paper-x-box">✕</div> Bạn Rùa chăm chỉ</li>
-                            </ul>
-                        </div>
-                        <button class="kid-btn" onclick="checkBookExercise('bai4')">🚀 Nộp câu trả lời</button>
-                        <div id="fb-book-bai4" class="feedback-container"></div>
-                    </div>
-
-                    <div class="exercise-section" style="border-top-color: var(--secondary-kid);">
-                        <h3 class="exercise-title">⭐ Bài tập làm thêm (Thử tài thông minh)</h3>
-                        <div class="question-item" data-qtype="fill" data-correct="rùa">
-                            <span class="instruction-text">📱 Hướng dẫn: Em hãy gõ chữ còn thiếu vào ô trống dưới đây nhé!</span>
-                            <p><strong>Câu 1: Điền chữ còn thiếu vào câu sau: "Thỏ thua ...."</strong></p>
-                            <p style="margin-top:10px;">Đáp án của em: <input type="text" class="input-fill" id="fill-bai4-1"></p>
-                        </div>
-                        <button class="kid-btn kid-btn-blue" onclick="checkExtraExercise('bai4')">🌟 Nộp bài làm thêm</button>
-                        <div id="garden-bai4" class="flower-garden"></div>
+                        <h3 class="exercise-title">🔢 Đánh số thứ tự theo đúng nội dung câu chuyện:</h3>
+                        <span class="instruction-text">📱 Hướng dẫn: Điền số 2, 3, 4 vào ô trống trước mỗi câu dựa theo diễn biến câu chuyện.</span>
+                        
+                        <ul class="sequence-list">
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-1" maxlength="1" value="1" readonly>
+                                <p>Thỏ rủ rùa thi đi bộ.</p>
+                            </li>
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-2" maxlength="1" placeholder="?">
+                                <p>Thỏ thua rùa.</p>
+                            </li>
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-3" maxlength="1" placeholder="?">
+                                <p>Rùa cố bò.</p>
+                            </li>
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-4" maxlength="1" placeholder="?">
+                                <p>Thỏ la cà.</p>
+                            </li>
+                        </ul>
+                        
+                        <button class="kid-btn" onclick="checkSequence()">🚀 Kiểm tra kết quả</button>
+                        <div id="fb-sequence" class="feedback-container"></div>
                     </div>
                 </div>
             </div>
@@ -880,108 +583,25 @@
     </div>
 
     <script>
-        // Các âm thanh bổ trợ học tập vui nhộn cho bé
         const soundCorrect = new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-84.wav'); 
         const soundIncorrect = new Audio('https://assets.mixkit.co/active_storage/sfx/2019/2019-84.wav');
-        const soundBravo = new Audio('https://assets.mixkit.co/active_storage/sfx/1435/1435-84.wav');
 
-        // Chuyển đổi qua lại giữa các bài đọc ở Sidebar
+        // Hàm chuyển đổi nội dung bài học từ sidebar
         function switchLesson(lessonId) {
-            // Tắt active ở tất cả các button sidebar
             document.querySelectorAll('.lesson-btn').forEach(btn => btn.classList.remove('active'));
-            // Tắt khối nội dung hiển thị cũ
             document.querySelectorAll('.lesson-block').forEach(block => block.classList.remove('active-block'));
             
-            // Dừng mọi audio đang phát dở ở các bài khác
-            document.querySelectorAll('audio').forEach(aud => { aud.pause(); aud.currentTime = 0; });
-            document.querySelectorAll('.karaoke-word').forEach(w => w.classList.remove('highlight'));
+            // Dừng tất cả âm thanh đang phát khi chuyển bài
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
 
-            // Kích hoạt bài mới chọn
             document.getElementById('btn-' + lessonId).classList.add('active');
             document.getElementById('content-' + lessonId).classList.add('active-block');
         }
 
-        // Đồng bộ chữ Karaoke chạy theo tiếng cô đọc bài
-        function syncKaraoke(lessonId) {
-            const audio = document.getElementById('audio_' + lessonId);
-            const words = document.getElementById('content-' + lessonId).querySelectorAll('.karaoke-word');
-            const currentTimeMs = audio.currentTime * 1000;
-
-            words.forEach(word => {
-                const start = parseFloat(word.getAttribute('data-start'));
-                const end = parseFloat(word.getAttribute('data-end'));
-
-                if (currentTimeMs >= start && currentTimeMs <= end) {
-                    word.classList.add('highlight');
-                } else {
-                    word.classList.remove('highlight');
-                }
-            });
-        }
-
-        // Xử lý logic chọn ô trắc nghiệm dấu ✕
-        function selectPaperX(element, index) {
-            const parent = element.closest('.options-list');
-            parent.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
-            element.classList.add('selected');
-            parent.closest('.question-item').setAttribute('data-user-selected', index);
-        }
-
-        // Kiểm tra kết quả câu hỏi trắc nghiệm dấu ✕ trong sách
-        function checkBookExercise(lessonId) {
-            const block = document.getElementById('content-' + lessonId);
-            const questionBox = block.querySelector('.question-item[data-qtype="paper-x"]');
-            const feedbackBox = document.getElementById('fb-book-' + lessonId);
-            
-            const userAns = questionBox.getAttribute('data-user-selected');
-            const correctAns = questionBox.getAttribute('data-correct');
-
-            feedbackBox.style.display = "block";
-
-            if (userAns === null) {
-                soundIncorrect.play();
-                feedbackBox.className = "feedback-container feedback-wrong";
-                feedbackBox.innerHTML = "⚠️ Bé ơi, bé chưa chọn ô nào để đánh dấu ✕ hết kìa!";
-                return;
-            }
-
-            if (userAns === correctAns) {
-                soundCorrect.play();
-                feedbackBox.className = "feedback-container feedback-correct";
-                feedbackBox.innerHTML = "🎉 Giỏi quá! Bé đã chọn đáp án hoàn toàn chính xác rồi nhé!";
-            } else {
-                soundIncorrect.play();
-                feedbackBox.className = "feedback-container feedback-wrong";
-                feedbackBox.innerHTML = "🥀 Ôi, chưa chính xác rồi! Bé hãy đọc lại bài đọc thật kỹ để chọn lại nha.";
-            }
-        }
-
-        // Kiểm tra kết quả câu hỏi điền từ vào ô trống (Bài tập làm thêm)
-        function checkExtraExercise(lessonId) {
-            const block = document.getElementById('content-' + lessonId);
-            const questionBox = block.querySelectorAll('.exercise-section')[1].querySelector('.question-item');
-            const garden = document.getElementById('garden-' + lessonId);
-            const uAnswer = questionBox.querySelector('.input-fill').value.trim().toLowerCase();
-            const cAnswer = questionBox.getAttribute('data-correct').toLowerCase();
-
-            garden.innerHTML = ""; 
-
-            if (uAnswer === "") {
-                soundIncorrect.play();
-                garden.innerHTML = "<span style='font-size:14px; color:var(--wrong-red); font-weight:bold;'>⚠️ Bé hãy điền chữ vào ô trống trước khi nộp bài nhé!</span>";
-                return;
-            }
-
-            if (uAnswer === cAnswer) {
-                soundBravo.play();
-                garden.innerHTML = "🌹 <span style='font-size:14px; color:var(--correct-green); font-weight:bold;'>Xuất sắc! Bé được tặng 1 bông hoa đỏ điểm thưởng (1/1)!</span>";
-            } else {
-                soundIncorrect.play();
-                garden.innerHTML = "🥀 <span style='font-size:14px; color:var(--wrong-red); font-weight:bold;'>Bé chưa làm đúng rồi, hãy đọc lại kỹ bài đọc để sửa lại nha (0/1).</span>";
-            }
-        }
-
-        // Khởi tạo cơ chế tương tác Game kéo/nối từ nối nghĩa (Matching Game)
+        // Logic xử lý Game Nối Từ (Matching Game) cho Bài 1 và Bài 2
         document.addEventListener("DOMContentLoaded", () => {
             let activeSelectedCard = null;
 
@@ -999,20 +619,17 @@
                         activeSelectedCard = this;
                         this.classList.add("selected");
                     } else {
-                        // Nếu chọn 2 ô cùng 1 bên cột -> Đổi mục tiêu chọn mới
                         if (activeSelectedCard.getAttribute("data-position") === this.getAttribute("data-position")) {
                             activeSelectedCard.classList.remove("selected");
                             activeSelectedCard = this;
                             this.classList.add("selected");
                         } else {
-                            // So sánh ID cặp định danh ghép đôi data-match
                             if (activeSelectedCard.getAttribute("data-match") === this.getAttribute("data-match")) {
                                 soundCorrect.play();
                                 activeSelectedCard.classList.remove("selected");
                                 activeSelectedCard.classList.add("matched");
                                 this.classList.add("matched");
 
-                                // Gán màu ngẫu nhiên kẹo ngọt cho cặp từ vừa nối đúng thành công
                                 const softColors = ["#2ecc71", "#3498db", "#9b59b6", "#e67e22", "#1abc9c"];
                                 const luckyColor = softColors[Math.floor(Math.random() * softColors.length)];
                                 
@@ -1030,6 +647,28 @@
                 });
             });
         });
+
+        // Kiểm tra kết quả sắp xếp thứ tự của Bài đọc 4
+        function checkSequence() {
+            const ans2 = document.getElementById('seq-2').value.trim();
+            const ans3 = document.getElementById('seq-3').value.trim();
+            const ans4 = document.getElementById('seq-4').value.trim();
+            const fb = document.getElementById('fb-sequence');
+
+            fb.style.display = "block";
+
+            // Diễn biến câu chuyện đúng: 1.Thỏ rủ rùa -> 2.Thỏ la cà -> 3.Rùa cố bò -> 4.Thỏ thua rùa.
+            // Do đó: seq-2 (Thỏ thua rùa) là 4, seq-3 (Rùa cố bò) là 3, seq-4 (Thỏ la cà) là 2.
+            if (ans2 === "4" && ans3 === "3" && ans4 === "2") {
+                soundCorrect.play();
+                fb.className = "feedback-container feedback-correct";
+                fb.innerHTML = "🎉 Giỏi quá! Bé đã sắp xếp các sự kiện đúng theo diễn biến câu chuyện rồi!";
+            } else {
+                soundIncorrect.play();
+                fb.className = "feedback-container feedback-wrong";
+                fb.innerHTML = "🥀 Điền chưa chính xác rồi. Bé hãy đọc lại truyện và thử điền lại các số nhé.";
+            }
+        }
     </script>
 </body>
 </html>
