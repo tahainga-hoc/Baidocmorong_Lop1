@@ -162,14 +162,23 @@
 
         .content-view {
             width: 70%;
+            position: relative;
         }
 
+        /* GIẢI PHÁP ẨN BÀI HỌC AN TOÀN TUYỆT ĐỐI */
         .lesson-block {
-            display: none;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.2s ease;
         }
 
-        .lesson-block.active-block {
-            display: block;
+        .lesson-block.hidden-lesson {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+            overflow: hidden !important;
+            width: 100%;
         }
 
         .lesson-illustration {
@@ -188,7 +197,6 @@
             background: #ffffff;
             border-radius: var(--card-radius);
             border: 4px solid var(--primary-kid);
-            box-shadow: 0|10px 0px var(--primary-kid);
             box-shadow: 0 10px 0px var(--primary-kid);
             padding: 30px;
             margin-bottom: 35px;
@@ -461,7 +469,8 @@
 
         <main class="content-view">
             
-            <div id="content-bai1" class="lesson-block active-block">
+            <!-- BÀI ĐỌC 1 -->
+            <div id="content-bai1" class="lesson-block">
                 <img class="lesson-illustration" src="Lop1.Baidoc1_3.png" alt="Bài đọc 1: Bể cá">
                 <div class="kid-card">
                     <h2 class="lesson-title">Bài đọc 1: Bể cá</h2>
@@ -469,7 +478,7 @@
                     
                     <div class="audio-player-zone">
                         <label>🔊 Nghe bài đọc:</label>
-                        <audio controls src="audio/Lop1.Baidoc1_3.mp3"></audio>
+                        <audio controls src="audio/Lop1.Baidoc1_3.mp3" preload="auto"></audio>
                     </div>
 
                     <div class="reading-box">
@@ -507,7 +516,8 @@
                 </div>
             </div>
 
-            <div id="content-bai2" class="lesson-block">
+            <!-- BÀI ĐỌC 2 -->
+            <div id="content-bai2" class="lesson-block hidden-lesson">
                 <img class="lesson-illustration" src="Lop1.Baidoc2_3.png" alt="Bài đọc 2: Hà đi chợ">
                 <div class="kid-card">
                     <h2 class="lesson-title">Bài đọc 2: Hà đi chợ</h2>
@@ -515,7 +525,7 @@
 
                     <div class="audio-player-zone">
                         <label>🔊 Nghe bài đọc:</label>
-                        <audio controls src="audio/Lop1.Baidoc2_3.mp3"></audio>
+                        <audio controls src="audio/Lop1.Baidoc2_3.mp3" preload="auto"></audio>
                     </div>
 
                     <div class="reading-box">
@@ -550,7 +560,8 @@
                 </div>
             </div>
 
-            <div id="content-bai3" class="lesson-block">
+            <!-- BÀI ĐỌC 3 -->
+            <div id="content-bai3" class="lesson-block hidden-lesson">
                 <img class="lesson-illustration" src="Lop1.Baidoc3_3.png" alt="Bài đọc 3: Nghỉ hè">
                 <div class="kid-card">
                     <h2 class="lesson-title">Bài đọc 3: Nghỉ hè</h2>
@@ -558,9 +569,224 @@
 
                     <div class="audio-player-zone">
                         <label>🔊 Nghe bài đọc:</label>
-                        <audio controls src="audio/Lop1.Baidoc3_3.mp3"></audio>
+                        <audio controls src="audio/Lop1.Baidoc3_3.mp3" preload="auto"></audio>
                     </div>
 
                     <div class="reading-box">
                         <div class="reading-line">Bà bé Nga đã già. Nghỉ hè, Nga ở nhà bà. Nhà bà có gà, có cả nghé. Ổ gà be bé. Gà có ngô. Nhà nghé nho nhỏ. Nghé có cỏ.</div>
-                        <span class="source-text
+                        <span class="source-text">Theo sách <i>Tiếng Việt 1</i><br>(NXB Đại học Sư phạm TP Hồ Chí Minh)</span>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">🧩 Nối đúng:</h3>
+                        <p style="font-size:15px; color:#2c3e50; margin-bottom:15px;">Em hãy quan sát tranh trong sách và đối chiếu với các câu sau:</p>
+                        <div style="background:#fff; padding:20px; border-radius:12px; border:2px solid #e2e8f0; line-height:2;">
+                            <p>1. 👵 (Hình bà cụ) ➔ <strong>đã già.</strong></p>
+                            <p>2. Nhà bà có 🐔 (Hình con gà) , có 🐃 (Hình con nghé) .</p>
+                            <p>3. 🪹 (Hình ổ rơm) ➔ <strong>be bé.</strong></p>
+                            <p>4. 🏠 (Hình chuồng nghé) ➔ <strong>nho nhỏ.</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">🌟 Bài tập làm thêm: Điền từ vào chỗ trống</h3>
+                        <div class="question-item" data-correct="ngô">
+                            Trong câu chuyện, chú gà ở nhà bà có thức ăn là hạt <input type="text" class="input-fill" placeholder="...">
+                        </div>
+                        <button class="kid-btn" onclick="checkExtraExercise('bai3')">🌸 Nộp bài làm thêm</button>
+                        <div id="garden-bai3" class="garden-zone"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI ĐỌC 4 -->
+            <div id="content-bai4" class="lesson-block hidden-lesson">
+                <img class="lesson-illustration" src="Lop1.Baidoc4_3.png" alt="Bài đọc 4: Thỏ thua rùa">
+                <div class="kid-card">
+                    <h2 class="lesson-title">Bài đọc 4: Thỏ thua rùa</h2>
+                    <div class="review-note-block">(Ôn các chữ mới học: r, s, t, th, tr, ia, ua, ưa)</div>
+
+                    <div class="audio-player-zone">
+                        <label>🔊 Nghe bài đọc:</label>
+                        <audio controls src="audio/Lop1.Baidoc4_3.mp3" preload="auto"></audio>
+                    </div>
+
+                    <div class="reading-box">
+                        <div class="reading-line">Thỏ rủ rùa thi đi bộ. Rùa tự nhủ: “Thi thì thi. Ta sẽ cố.”. Thỏ nghĩ là rùa sẽ thua. Nó kệ rùa bò, cứ la cà chỗ nọ chỗ kia. Kế đó, nó ngủ khì.</div>
+                        <div class="reading-line">Giữa trưa, thỏ đã thua rùa.</div>
+                        <span class="source-text">Theo LA PHÔNG-TEN</span>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">🔢 Đánh số thứ tự theo đúng nội dung câu chuyện:</h3>
+                        <span class="instruction-text">📱 Hướng dẫn: Điền số 2, 3, 4 vào ô trống trước mỗi câu dựa theo diễn biến câu chuyện.</span>
+                        
+                        <ul class="sequence-list">
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-1" maxlength="1" value="1" readonly>
+                                <p>Thỏ rủ rùa thi đi bộ.</p>
+                            </li>
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-2" maxlength="1" placeholder="?">
+                                <p>Thỏ thua rùa.</p>
+                            </li>
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-3" maxlength="1" placeholder="?">
+                                <p>Rùa cố bò.</p>
+                            </li>
+                            <li class="sequence-item">
+                                <input type="text" class="sequence-input" id="seq-4" maxlength="1" placeholder="?">
+                                <p>Thỏ la cà.</p>
+                            </li>
+                        </ul>
+                        
+                        <button class="kid-btn" onclick="checkSequence()">🚀 Kiểm tra kết quả</button>
+                        <div id="fb-sequence" class="feedback-container"></div>
+                    </div>
+
+                    <div class="exercise-section">
+                        <h3 class="exercise-title">🌟 Bài tập làm thêm: Điền từ vào chỗ trống</h3>
+                        <div class="question-item" data-correct="ngu khi">
+                            Vì chủ quan nghĩ mình chạy nhanh hơn rùa nên thỏ đã nằm <input type="text" class="input-fill" placeholder="...">
+                        </div>
+                        <button class="kid-btn" onclick="checkExtraExercise('bai4')">🌸 Nộp bài làm thêm</button>
+                        <div id="garden-bai4" class="garden-zone"></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        const soundCorrect = new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-84.wav'); 
+        const soundIncorrect = new Audio('https://assets.mixkit.co/active_storage/sfx/2019/2019-84.wav');
+        const soundBravo = new Audio('https://assets.mixkit.co/active_storage/sfx/1435/1435-84.wav');
+
+        // HÀM CHUYỂN BÀI HỌC CẬP NHẬT: Thêm/Xóa class .hidden-lesson chuẩn xác
+        function switchLesson(lessonId) {
+            // Cập nhật trạng thái Active trên Menu Sidebar
+            document.querySelectorAll('.lesson-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lessonId).classList.add('active');
+            
+            // Ẩn tất cả các bài đọc bằng lớp bao chuyên dụng (.hidden-lesson)
+            document.querySelectorAll('.lesson-block').forEach(block => {
+                block.classList.add('hidden-lesson');
+            });
+            
+            // Hiển thị duy nhất bài đọc được chọn
+            document.getElementById('content-' + lessonId).classList.remove('hidden-lesson');
+            
+            // Tạm dừng mọi âm thanh đang phát để tránh tiếng đè nhau
+            const allAudios = document.getElementsByTagName('audio');
+            for(let i = 0; i < allAudios.length; i++) {
+                allAudios[i].pause();
+            }
+        }
+
+        // Logic xử lý Trò chơi Nối từ (Matching Game) của Bài 1 và Bài 2
+        document.addEventListener("DOMContentLoaded", () => {
+            let activeSelectedCard = null;
+
+            document.querySelectorAll(".word-card").forEach(card => {
+                card.addEventListener("click", function() {
+                    if (this.classList.contains("matched")) return;
+
+                    if (activeSelectedCard === this) {
+                        this.classList.remove("selected");
+                        activeSelectedCard = null;
+                        return;
+                    }
+
+                    if (!activeSelectedCard) {
+                        activeSelectedCard = this;
+                        this.classList.add("selected");
+                    } else {
+                        if (activeSelectedCard.getAttribute("data-position") === this.getAttribute("data-position")) {
+                            activeSelectedCard.classList.remove("selected");
+                            activeSelectedCard = this;
+                            this.classList.add("selected");
+                        } else {
+                            if (activeSelectedCard.getAttribute("data-match") === this.getAttribute("data-match")) {
+                                soundCorrect.play();
+                                activeSelectedCard.classList.remove("selected");
+                                activeSelectedCard.classList.add("matched");
+                                this.classList.add("matched");
+
+                                const softColors = ["#2ecc71", "#3498db", "#9b59b6", "#e67e22", "#1abc9c"];
+                                const luckyColor = softColors[Math.floor(Math.random() * softColors.length)];
+                                
+                                activeSelectedCard.style.backgroundColor = luckyColor;
+                                this.style.backgroundColor = luckyColor;
+
+                                activeSelectedCard = null;
+                            } else {
+                                soundIncorrect.play();
+                                activeSelectedCard.classList.remove("selected");
+                                activeSelectedCard = null;
+                            }
+                        }
+                    }
+                });
+            });
+        });
+
+        // Kiểm tra kết quả sắp xếp thứ tự của Bài đọc 4
+        function checkSequence() {
+            const ans2 = document.getElementById('seq-2').value.trim();
+            const ans3 = document.getElementById('seq-3').value.trim();
+            const ans4 = document.getElementById('seq-4').value.trim();
+            const fb = document.getElementById('fb-sequence');
+
+            fb.style.display = "block";
+
+            if (ans2 === "4" && ans3 === "3" && ans4 === "2") {
+                soundCorrect.play();
+                fb.className = "feedback-container feedback-correct";
+                fb.innerHTML = "🎉 Giỏi quá! Bé đã sắp xếp các sự kiện đúng theo diễn biến câu chuyện rồi!";
+            } else {
+                soundIncorrect.play();
+                fb.className = "feedback-container feedback-wrong";
+                fb.innerHTML = "🥀 Điền chưa chính xác rồi. Bé hãy đọc lại truyện và thử điền lại các số nhé.";
+            }
+        }
+
+        // Logic xử lý phần chấm điểm bài tập làm thêm điền từ vào ô trống
+        function checkExtraExercise(lessonId) {
+            const block = document.getElementById('content-' + lessonId);
+            const questionBox = block.querySelector('.exercise-section:last-child .question-item');
+            const garden = document.getElementById('garden-' + lessonId);
+            
+            const cleanString = (str) => {
+                return str.trim().toLowerCase()
+                    .replace(/[àáạảãâầấậẩẫăằắặẳẵ]/g, "a")
+                    .replace(/[èéẹẻẽêềếệểễ]/g, "e")
+                    .replace(/[ìíịỉĩ]/g, "i")
+                    .replace(/[òóọỏõôồốộổỗơờớợởỡ]/g, "o")
+                    .replace(/[ùúụủũưừứựửữ]/g, "u")
+                    .replace(/[ỳýỵỷỹ]/g, "y")
+                    .replace(/đ/g, "d");
+            };
+
+            const uAnswer = cleanString(questionBox.querySelector('.input-fill').value);
+            const cAnswer = cleanString(questionBox.getAttribute('data-correct'));
+
+            garden.innerHTML = "";
+
+            if (uAnswer === "") {
+                soundIncorrect.play();
+                garden.innerHTML = "<span style='font-size:14px; color:var(--wrong-red); font-weight:bold;'>⚠️ Bé hãy điền chữ vào ô trống trước khi nộp bài nhé!</span>";
+                return;
+            }
+
+            if (uAnswer === cAnswer) {
+                soundBravo.play();
+                garden.innerHTML = "🌹 <span style='font-size:14px; color:var(--correct-green); font-weight:bold;'>Xuất sắc! Bé đã điền đúng từ và được tặng 1 bông hoa điểm thưởng!</span>";
+            } else {
+                soundIncorrect.play();
+                garden.innerHTML = "🥀 <span style='font-size:14px; color:var(--wrong-red); font-weight:bold;'>Bé chưa điền đúng rồi, hãy đọc lại kỹ bài đọc để thử lại nha.</span>";
+            }
+        }
+    </script>
+</body>
+</html>
